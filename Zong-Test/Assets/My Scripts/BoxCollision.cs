@@ -21,6 +21,7 @@ public class BoxCollision : MonoBehaviour
     {
         if (other.tag == "Sphere")
         {
+            Destroy(other.gameObject, 1);
             if (this.name == "Box_C")
             {
                 GManager.UI.SetActive(true);
@@ -33,8 +34,16 @@ public class BoxCollision : MonoBehaviour
                 GManager.UI.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "You Droped In " + this.name;
                 transform.GetChild(1).gameObject.SetActive(true);
                 transform.GetChild(2).gameObject.SetActive(false);
-                Destroy(GManager.ball);
+               // Destroy(GManager.ball);
+                StartCoroutine(closeUI());
             }
         }
+    }
+
+    IEnumerator closeUI()
+    {
+        yield return new WaitForSeconds(4);
+        GManager.UI.SetActive(false);
+        Application.LoadLevel(0);
     }
 }

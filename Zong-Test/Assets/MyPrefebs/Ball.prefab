@@ -14,14 +14,13 @@ GameObject:
   - component: {fileID: 8763855151247447702}
   - component: {fileID: 8763855151247447703}
   - component: {fileID: 8763855151247447698}
-  - component: {fileID: 8763855151814268848}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Ball
   m_TagString: Sphere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8763855151247447699
 Transform:
   m_ObjectHideFlags: 0
@@ -29,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8763855151247447700}
-  m_LocalRotation: {x: 0.01980815, y: 0.0008637245, z: -0.000017112148, w: 0.9998034}
+  m_LocalRotation: {x: 0.019807884, y: 0.00086563826, z: -0.000014130026, w: 0.9998034}
   m_LocalPosition: {x: 34.119377, y: 1.5195364, z: 1.5552698}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 2.27, y: 0.099, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8763855151247447696
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -63,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e52bd609299bcb74697d13c8c203c2f0, type: 2}
+  - {fileID: 2100000, guid: 2d8351d54883f624a88c407760fd12e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,17 +220,3 @@ MonoBehaviour:
   HandGrabbers: []
   Stabbers: []
   Stabbable: {fileID: 0}
---- !u!114 &8763855151814268848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8763855151247447700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ba2de504a44824dbd06eb24e3e22b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UI: {fileID: 0}
-  MainUI: {fileID: 0}

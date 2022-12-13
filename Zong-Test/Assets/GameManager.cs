@@ -4,33 +4,44 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject Player, UI, ballspawnpoint, ballprefeb;
-    public GameObject ball;
+    public GameObject Player, UI, ballspawnpoint, sphereprefeb,ballprefeb;
+    public GameObject sphere, ball;
+    Vector3 ballposition;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        sphere= Instantiate(sphereprefeb, ballspawnpoint.transform.position, ballspawnpoint.transform.rotation);
+        sphere.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+    }
 
+    public void SpawnNewBall()
+    {
+        if (sphere)
+        {
+            sphere.SetActive(false);
+            ball = Instantiate(ballprefeb, sphere.transform.position, sphere.transform.rotation);
+            Destroy(sphere);
+        }
     }
 
     IEnumerator MoveToSpawnPoint()
     {
         yield return new WaitForSeconds(2);
-        Player.transform.GetComponentInChildren<CharacterController>().enabled = false;
+        Player.GetComponent<CharacterController>().enabled = false;
         Player.transform.position = transform.position;
-        Player.transform.GetComponentInChildren<CharacterController>().enabled = true;
-        Destroy(ball);
+        Player.GetComponent<CharacterController>().enabled = true;
+        UI.SetActive(false);
+        sphere= Instantiate(sphereprefeb, ballspawnpoint.transform.position, ballspawnpoint.transform.rotation);
+        sphere.SetActive(true);
+        sphere.GetComponent<spherescript>().UI.SetActive(true);
+        // Destroy(ball);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player" && ball==null)
-        {
-            ball = Instantiate(ballprefeb, ballspawnpoint.transform.position, ballspawnpoint.transform.rotation);
-        }
-    }
+   
 }
