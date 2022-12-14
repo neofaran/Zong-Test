@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player, UI, ballspawnpoint, sphereprefeb,ballprefeb;
     public GameObject sphere, ball;
     Vector3 ballposition;
+    public AudioSource ClickSound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
             sphere.SetActive(false);
             ball = Instantiate(ballprefeb, sphere.transform.position, sphere.transform.rotation);
             Destroy(sphere);
+            ClickSoundPlay();
         }
     }
 
@@ -44,4 +46,8 @@ public class GameManager : MonoBehaviour
         // Destroy(ball);
     }
    
+    public void ClickSoundPlay()
+    {
+        this.GetComponent<AudioSource>().Play();
+    }
 }
